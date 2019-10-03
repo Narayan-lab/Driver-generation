@@ -1,0 +1,49 @@
+		
+
+
+	
+	
+	
+/*************************************************************
+ * RUN TIME SPECIFICATION
+ * -----------------------------------------------------------
+ * Device: ADC
+ * -----------------------------------------------------------
+ * Board:  STM32F407
+ * -----------------------------------------------------------
+ * OS   :  No OS
+ *************************************************************/
+
+PROCESSOR_SPEC {
+  NAME = arm7; //arm_Cortex
+  CLOCK_FREQUENCY = 30MHz ;
+  //WORD_LENGTH = 32 ;
+}
+
+
+ENTRY_POINT {
+  QUALIFIER = SYNCHRONOUS_BLOCKING;
+}
+
+BUS_SPEC {
+  BASE_ADDRESS  = 0x40012000;
+  REG_ACCESS_TYPE = MEMORY_MAPPED;
+
+}
+
+COMPILER_SPEC {
+  COMPILER_NAME  = GCC ;
+}
+
+
+CODEGEN_SPEC {
+thin_api = yes; 
+env_file_name = "env.h";
+env_file_location = "./"; //change to dedicated folder if possible
+}
+	
+	
+	
+	
+	
+

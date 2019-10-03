@@ -1,0 +1,619 @@
+	
+  STATUS_REGISTERS
+{
+ ADC_SR [32]@ 0x00 { 
+     DESCRIPTION = "ADC Status Register";  // Control Register
+     SW_AXS = RW;
+   
+   FIELD AWD<0:0> {
+      DESCRIPTION = "Analog Watchdog Flag";
+      SW_AXS = RW;
+  CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD EOC<1:1> {
+      DESCRIPTION = "Regular Channel End Of Conversion ";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD JEOC<2:2> {
+      DESCRIPTION = "Injected Channel End Of Conversion";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD JSTRT<3:3> {
+      DESCRIPTION = "Injected Channel Start Flag";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+	
+   FIELD STRT<4:4> {
+      DESCRIPTION = "Regular Channel Start Flag";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+   FIELD OVR<5:5> {
+      DESCRIPTION = "Overrun";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+   RESERVED<6:31> = 0;
+ }
+}
+
+CONTROL_REGISTERS
+{
+ ADC_CR1 [32]@ 0x04 { 
+     DESCRIPTION = "ADC Control Register 1";  // Control Register
+     SW_AXS = RW;
+   
+   FIELD AWDCH<0:4> {
+      DESCRIPTION = "Analog Watchdog Channel Select Bits";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD EOCIE<5:5> {
+      DESCRIPTION = "Interrupt Enable For EOC";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD AWDIE<6:6> {
+      DESCRIPTION = "Analog Watchdog Interrupt Enable";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD JEOCIE<7:7> {
+      DESCRIPTION = "Interrupt Enable For Injected Channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD SCAN<8:8> {
+      DESCRIPTION = "Injected Channel Start Flag";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+	
+   FIELD AWDSGL<9:9> {
+      DESCRIPTION = "Enable The Watchdog On a Single Channel In Scan mode";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+   FIELD JAUTO<10:10> {
+      DESCRIPTION = "Automatic Injected Group Conversion";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+   FIELD DISCEN<11:11> {
+      DESCRIPTION = "Distcontinuous Mode On Regular Channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD JDISCEN<12:12> {
+      DESCRIPTION = "Discontinuous Mode On Injected Channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD DISCNUM<13:15> {
+      DESCRIPTION = "Discontinuous Mode Channel Count";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   
+   RESERVED<16:21> = 0;
+
+   FIELD JAWDEN<22:22> {
+      DESCRIPTION = "Analog Watchdog Enable On Injected Channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD AWDEN<23:23> {
+      DESCRIPTION = "Analog Watchdog Enable On Regular Channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD RES<24:25> {
+      DESCRIPTION = "Resolution";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD OVRIE<26:26> {
+      DESCRIPTION = "Overrun Interrupt Enable";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   RESERVED<27:31> = 0;
+ }
+}
+
+ CONTROL_REGISTERS
+{
+ ADC_CR2 [32]@ 0x08 { 
+     DESCRIPTION = "ADC Control Register 2";  // Control Register
+     SW_AXS = RW;
+   
+   FIELD ADON<0:0> {
+      DESCRIPTION = "A/D Converter On/Off";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD CONT<1:1> {
+      DESCRIPTION = "Continuous Conversion";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+   RESERVED<2:7> = 0;
+
+    FIELD DMA<8:8> {
+      DESCRIPTION = "Direct Memory Access Mode";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD DDS<9:9>{
+      DESCRIPTION = "DMA Disable Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD EOCS<10:10> {
+      DESCRIPTION = "End Of Conversion Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+	
+   FIELD ALIGN<11:11> {
+      DESCRIPTION = "Data Alignment";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+
+   RESERVED<12:15> = 0;
+
+   FIELD JEXTSEL<16:19> {
+      DESCRIPTION = "External Event Select For injected group";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }	
+   FIELD JEXTEN<20:21> {
+      DESCRIPTION = "External Trigger Enable For Injected Channel ";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD JSWSTART<22:22> {
+      DESCRIPTION = "Start Conversion Of Injected channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+   RESERVED<23:23> = 0;
+
+   FIELD EXTSEL<24:27> {
+      DESCRIPTION = "External Event Select For Regular Group";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+   FIELD EXTEN<28:29> {
+      DESCRIPTION = "External Trigger Enable For Regular Channels ";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   FIELD SWSTART<30:30> {
+      DESCRIPTION = "Start Conversion Of Regular Channels";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+   
+   RESERVED<31:31> = 0;
+ }
+}
+
+CONTROL_REGISTERS
+{
+ ADC_SMPR1 [32]@ 0x0C { 
+     DESCRIPTION = "ADC Sample Time Register 1";  // Control Register
+     SW_AXS = RW;
+
+ FIELD SMP10<0:2> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP11<3:5> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP12<6:8> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP13<9:11> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP14<12:14> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP15<15:17> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP16<18:20> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP17<21:23> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+FIELD SMP18<24:26> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+RESERVED<27:31> = 0;
+ }
+}
+
+CONTROL_REGISTERS
+{
+ ADC_SMPR2 [32]@ 0x10 { 
+     DESCRIPTION = "ADC Sample Time Register 2";  // Control Register
+     SW_AXS = RW;
+
+ FIELD SMPx<0:29> {
+      DESCRIPTION = "Channel Sampling Time Selection";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+RESERVED<30:31> = 0;
+ }
+}
+
+
+CONTROL_REGISTERS
+{
+ ADC_SQR1[32]@ 0x2C { 
+     DESCRIPTION = "ADC Regular Sequence Register 1";  // Control Register
+     SW_AXS = RW;
+FIELD SQ13<0:4> {
+      DESCRIPTION = "13th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ14<5:9> {
+      DESCRIPTION = "14th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ15<10:14> {
+      DESCRIPTION = "15th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ16<15:19> {
+      DESCRIPTION = "16th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD L<20:23> {
+      DESCRIPTION = "Regular Channel Sequence Length";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+   RESERVED<24:31> = 0;
+}
+}
+
+CONTROL_REGISTERS
+{
+ ADC_SQR2[32]@ 0x30 { 
+     DESCRIPTION = "ADC Regular Sequence Register 2";  // Control Register
+     SW_AXS = RW;
+FIELD SQ7<0:4> {
+      DESCRIPTION = "7th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ8<5:9> {
+      DESCRIPTION = "8th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ9<10:14> {
+      DESCRIPTION = "9th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ10<15:19> {
+      DESCRIPTION = "10th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ11<20:24> {
+      DESCRIPTION = "11th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ12<25:29> {
+      DESCRIPTION = "11th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+   RESERVED<30:31> = 0;
+}
+}
+
+CONTROL_REGISTERS
+{
+ ADC_SQR3[32]@ 0x34 { 
+     DESCRIPTION = "ADC Regular Sequence Register 3";  // Control Register
+     SW_AXS = RW;
+FIELD SQ1<0:4> {
+      DESCRIPTION = "1st Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ2<5:9> {
+      DESCRIPTION = "2nd Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ3<10:14> {
+      DESCRIPTION = "3rd Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ4<15:19> {
+      DESCRIPTION = "4th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+FIELD SQ5<20:29> {
+      DESCRIPTION = "5th Conversion in Regular Sequence";
+      SW_AXS = RW;
+      CLEARING_MODE = DC;
+      VALUE_ON_RESET = 0;
+   }
+
+   RESERVED<30:31> = 0;
+}
+}
+
+DATA_REGISTERS
+ {
+   ADC_DR [32] @ 0x4C{ 
+   SW_AXS = RO;
+   DESCRIPTION = "ADC Regular data Register";   // DATA REGISTER
+      
+   FIELD DATA<0:15> {
+       SW_AXS = RO;
+       DESCRIPTION = "Regular Data";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+    
+   RESERVED<16:31> = 0;
+   }
+}
+
+
+CONTROL_REGISTERS
+{
+ ADC_CCR[32]@ 0x04 { 
+     DESCRIPTION = "ADC Common Control Register";  // Control Register
+     SW_AXS = RW;
+    
+   FIELD MULTI<0:4> {
+       SW_AXS = RW;
+       DESCRIPTION = "MULTI ADC Mode Selection";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+
+   RESERVED<5:7> = 0;
+   
+   FIELD DELAY<8:11> {
+       SW_AXS = RO;
+       DESCRIPTION = "DELAY";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+
+   RESERVED<12:12> = 0;
+   
+FIELD DDS<13:13> {
+       SW_AXS = RW;
+       DESCRIPTION = "DMA Disable Selection";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+FIELD DMA<14:15> {
+       SW_AXS = RW;
+       DESCRIPTION = "Direct Memory Access Mode For Multi ADC Mode";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+FIELD ADCPRE<16:17> {
+       SW_AXS = RW;
+       DESCRIPTION = "ADC Prescaler";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+
+   RESERVED<18:21> = 0;
+
+FIELD VBATE<22:22> {
+       SW_AXS = RW;
+       DESCRIPTION = "VBAT Enable";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+FIELD TSVREFE<23:23> {
+       SW_AXS = RW;
+       DESCRIPTION = "Temperature sensor and VREFINT Enable";
+       CLEARING_MODE = DC;
+       VALUE_ON_RESET = 0x00000000;  
+   }
+
+   RESERVED<24:31> = 0;
+}
+}
+
+/*************************************************************
+* DEVICE AND PROGRAMMING SPECIFICATION
+* -----------------------------------------------------------
+* Device: ADC* -----------------------------------------------------------
+* Board:  STM32F407
+*************************************************************/
+//THIS DPS USES ABSOLUTE ADDRESSES MODIFY TO USE BASE ADDR
+DEVICE_SPEC {
+ DEVICE_NAME        = ADC;
+ MANUFACTURER_NAME  = " STMicroelectronics";
+ DEVICE_VERSION     = "unknown";
+ DEVICE_INPUT_CLOCK = 30MHz;
+ DEVICE_CLASS       = DEFAULT;
+}
+
+//+++++++++++++++++++++++++DPS sequences+++++++++++++++++++++++++++++
+    
+    DESCRIPTION = "This function configure the ADC clock";
+SEQUENCE configure_ADC_clock
+{
+	INPUT unsigned int prescale;
+	
+
+	ADC_CCR.ADCPRE=prescale;
+	//RCC_APB2ENR.ADC1EN= 1;
+}
+
+DESCRIPTION = "this function Configure the ADC parameters";
+SEQUENCE configure_ADC_parameters
+{
+	INPUT unsigned int resolution;
+	INPUT unsigned int data_alignment;
+	INPUT unsigned int cont_bit;
+
+	ADC_CR1.RES=resolution;
+	ADC_CR2.ALIGN=data_alignment;
+	ADC_CR2.CONT=cont_bit;
+}
+
+DESCRIPTION = "This function is for Channel selection";
+SEQUENCE config_channel
+{
+	INPUT unsigned int channel_selection;
+	INPUT unsigned int sample_rate1;
+	INPUT unsigned int seq;
+
+	ADC_SQR1.L=channel_selection;
+	ADC_SMPR1.SMP12=sample_rate1;
+	ADC_SQR3.SQ1=seq;
+}
+
+DESCRIPTION = "This function is for ADC conversion";
+SEQUENCE ADC_conv
+{
+	INPUT unsigned int adon_bit;
+	OUTPUT unsigned int data;
+	
+	if(adon_bit==1)
+	{	
+	    ADC_CR2.ADON=1;
+	    ADC_CR2.SWSTART=1;
+	}
+	
+	poll until(ADC_SR.EOC==1){
+	     data = ADC_DR.DATA;
+	     ADC_CR2.EOCS=1;
+	}
+	wait=5ms;
+}
+
+BUS_SPEC {
+ 
+  REG_ACCESS_TYPE = MEMORY_MAPPED;
+
+}	
+	
+	
+	
+	
+	
+	
+	
+	
